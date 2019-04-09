@@ -1,0 +1,41 @@
+version: '3.4'
+
+services:
+  studentadministrationtest:
+    image: studentadministrationtest
+    build:
+        context: .
+        dockerfile: StudentAdministrationTest/Dockerfile
+    #command: dotnet test
+    container_name : studentadministration_test
+    
+  studentadministrationwebapi:
+    image: studentadministrationwebapi
+    build:
+      context: .
+      dockerfile: StudentAdministrationWebApi/Dockerfile
+    restart: unless-stopped
+    ports: 
+      - "22000:443"
+    volumes:
+      - studentadmnistrationdb-filestorage-volume:/app/filestorage
+    container_name : studentadministration_api
+
+  studentadministrationdb:
+    image: studentadministrationdb
+    build: 
+      context: ./db
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+        - "3200:3306"
+    environment:
+        MYSQL_ROOT_PASSWORD: password
+        MYSQL_DATABASE: studentadministationstore
+    volumes:
+        - studentadmnistrationdb-db-volume:/var/lib/mysql
+    container_name : studentadministration_db
+        
+volumes:
+  studentadmnistrationdb-db-volume:
+  studentadmnistrationdb-filestorage-volume:
