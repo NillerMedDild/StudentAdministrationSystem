@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.168
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAdministrationWebApi", "StudentAdministrationWebApi\StudentAdministrationWebApi.csproj", "{3AFD79F4-01EC-4619-A5A7-8E47303B0244}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAdministrationWebApi", "StudentAdministrationWebApi\StudentAdministrationWebApi.csproj", "{3AFD79F4-01EC-4619-A5A7-8E47303B0244}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{3AE2E4A5-A17F-4DE4-807D-06E18C9DB6BD}"
 	ProjectSection(SolutionItems) = preProject
@@ -12,13 +12,9 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Db", "Db", "{3AE2E4A5-A17F-
 		Db\populate.sql = Db\populate.sql
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentAdministrationTest", "StudentAdministrationTest\StudentAdministrationTest.csproj", "{3F939D65-F4FD-4525-BDA8-A9BB2FE82C52}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAdministrationTest", "StudentAdministrationTest\StudentAdministrationTest.csproj", "{3F939D65-F4FD-4525-BDA8-A9BB2FE82C52}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2A603D6C-2A0C-481C-B606-3086416766CD}"
-	ProjectSection(SolutionItems) = preProject
-		docker-compose.dcproj = docker-compose.dcproj
-		docker-compose.yml = docker-compose.yml
-	EndProjectSection
+Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{7D5182C2-B81F-4247-A9AF-0D3E80B9D161}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -34,6 +30,10 @@ Global
 		{3F939D65-F4FD-4525-BDA8-A9BB2FE82C52}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3F939D65-F4FD-4525-BDA8-A9BB2FE82C52}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3F939D65-F4FD-4525-BDA8-A9BB2FE82C52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7D5182C2-B81F-4247-A9AF-0D3E80B9D161}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7D5182C2-B81F-4247-A9AF-0D3E80B9D161}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7D5182C2-B81F-4247-A9AF-0D3E80B9D161}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7D5182C2-B81F-4247-A9AF-0D3E80B9D161}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

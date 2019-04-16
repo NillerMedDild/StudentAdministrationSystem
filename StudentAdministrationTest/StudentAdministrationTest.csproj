@@ -3,6 +3,12 @@
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
 	<GenerateProgramFile>false</GenerateProgramFile>
+	<ApplicationIcon />
+	<OutputType>Library</OutputType>
+	<StartupObject />
+	<Description>Student Administration System is an example project consisting of an ASP.NET Core frontend, .NET Core backend, and MySQL/Entity Framework database. 
+It's purpose is to act as a learning tool for myself, and a showcase of my development capabilities.</Description>
+	<Copyright>Niels Pilgaard Grøndahl</Copyright>
   </PropertyGroup>
 
   <ItemGroup>

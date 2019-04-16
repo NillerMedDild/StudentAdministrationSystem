@@ -24,6 +24,9 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
       "applicationUrl": "http://localhost:50523/"
+    },
+    "docker-compose": {
+      "commandName": "Executable"
     }
   }
 }

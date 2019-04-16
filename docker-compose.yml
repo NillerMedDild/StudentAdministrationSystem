@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   studentadministrationtest:
-    image: studentadministrationtest
+    image: ${DOCKER_REGISTRY-}studentadministrationtest
     build:
         context: .
         dockerfile: StudentAdministrationTest/Dockerfile
@@ -10,7 +10,7 @@ services:
     container_name : studentadministration_test
     
   studentadministrationwebapi:
-    image: studentadministrationwebapi
+    image: ${DOCKER_REGISTRY-}studentadministrationwebapi
     build:
       context: .
       dockerfile: StudentAdministrationWebApi/Dockerfile
@@ -22,7 +22,7 @@ services:
     container_name : studentadministration_api
 
   studentadministrationdb:
-    image: studentadministrationdb
+    image: ${DOCKER_REGISTRY-}studentadministrationdb
     build: 
       context: ./db
       dockerfile: Dockerfile
