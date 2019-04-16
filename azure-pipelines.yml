@@ -15,10 +15,10 @@ variables:
 steps:
 - script: |
     docker-compose -f docs/docker-compose.yml --project-directory . -p docs up -d
-    #docker wait studentadministrationtest
     docker-compose -f docs/docker-compose.yml --project-directory . down
 
-- bash: |
+- task: Bash@3
+    inputs:
+    script: |
     docker-compose -f docs/docker-compose.yml --project-directory . -p docs up -d
-    #docker wait docs_sut_1
     docker-compose -f docs/docker-compose.yml --project-directory . down
