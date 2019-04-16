@@ -18,7 +18,6 @@ steps:
     #docker wait studentadministrationtest
     docker-compose -f docs/docker-compose.yml --project-directory . down
 
-task:
 - bash: |
     docker-compose -f docs/docker-compose.yml --project-directory . -p docs up -d
     #docker wait docs_sut_1
