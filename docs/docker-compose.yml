@@ -2,7 +2,7 @@ version: '3.4'
 
 services:
   studentadministrationtest:
-    image: ${DOCKER_REGISTRY-}studentadministrationtest
+    image: studentadministrationtest
     build:
         context: .
         dockerfile: StudentAdministrationTest/Dockerfile
