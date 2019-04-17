@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace StudentAdministrationWebApi.DAL.Models
 {
+    /// <summary>
+    /// The course class defines a set of classes or a plan of study on a particular subject.
+    /// </summary>
     public class Course
     {
         /// <summary>

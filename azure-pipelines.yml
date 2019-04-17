@@ -13,12 +13,12 @@ variables:
   buildConfiguration: 'Release'
 
 steps:
-- script: |
-    docker-compose -f docs/docker-compose.yml --project-directory . -p docs up -d
-    docker-compose -f docs/docker-compose.yml --project-directory . down
+- script:
+    docker-compose up -d
+    docker-compose down
 
 - task: Bash@3
     inputs:
-    script: |
-    docker-compose -f docs/docker-compose.yml --project-directory . -p docs up -d
-    docker-compose -f docs/docker-compose.yml --project-directory . down
+    script:
+    docker-compose up -d
+    docker-compose down

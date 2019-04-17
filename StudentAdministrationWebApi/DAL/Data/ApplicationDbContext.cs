@@ -6,7 +6,10 @@ namespace StudentAdministrationWebApi.DAL.Data
 {
     public class ApplicationDbContext : DbContext
     {
-        //public DbSet<Checklist> Checklists { get; set; }
+        public DbSet<Student> Students { get; set; }
+        public DbSet<Teacher> Teachers { get; set; }
+        public DbSet<Course> Courses { get; set; }
+        public DbSet<Grade> Grades { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -40,6 +43,12 @@ namespace StudentAdministrationWebApi.DAL.Data
                     entity.HasMany(e => e.Teachers);
                     entity.HasMany(e => e.Students);
 
+                });
+
+            builder.Entity<Grade>(
+                entity =>
+                {
+                    entity.HasKey(e => e.Id);
                 });
         }
     }

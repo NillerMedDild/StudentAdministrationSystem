@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace StudentAdministrationWebApi.DAL.Models
 {
+    /// <summary>
+    /// The student class defines a person who is or has been enrolled on a course.
+    /// </summary>
     public class Student
     {
         /// <summary>
@@ -41,11 +44,6 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// Virtual reference to provide easy access to courses relevant to the person.
         /// </summary>
         public virtual ICollection<Course> Courses { get; set; }
-
-        /// <summary>
-        /// A Dictionary of the student's grades from completed courses.
-        /// </summary>
-        public Dictionary<Course, double> Grades { get; set; }
         
     }
 }

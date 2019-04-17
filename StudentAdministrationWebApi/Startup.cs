@@ -35,9 +35,10 @@ namespace StudentAdministrationWebApi
                 .AddJsonOptions(options => {
                 options.SerializerSettings.ReferenceLoopHandling = ReferenceLoopHandling.Ignore;
             });
+
             services.AddDbContextPool<ApplicationDbContext>(options =>
                options.UseMySql(Configuration.GetConnectionString("StudentAdministrationDB")));
-            services.AddCors();
+
 
             services.AddSwaggerGen(config => {
                 config.SwaggerDoc("v1", new Info
@@ -55,17 +56,21 @@ namespace StudentAdministrationWebApi
                 //config.OperationFilter<FormFileSwaggerFilter>();
             });
 
-            services.AddLogging(l => l.AddConsole());
+            services.AddCors();
+            //services.AddLogging(l => l.AddConsole());
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging")); //log levels set in your configuration
-            loggerFactory.AddDebug();
+            //loggerFactory.AddConsole(Configuration.GetSection("Logging")); //log levels set in your configuration
+            //loggerFactory.AddDebug();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
+                app.UseHsts();
+
             }
             else
             {

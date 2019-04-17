@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace StudentAdministrationWebApi.DAL.Models
 {
+    /// <summary>
+    /// The teaches class defines a person who is or has been teaching a course.
+    /// </summary>
     public class Teacher
     {
         /// <summary>
