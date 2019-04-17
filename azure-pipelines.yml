@@ -16,8 +16,3 @@ steps:
 - script:
     docker-compose up -d
     docker-compose down
-
-- task: Bash@3
-    script:
-    docker-compose up -d
-    docker-compose down
