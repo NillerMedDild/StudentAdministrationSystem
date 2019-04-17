@@ -14,5 +14,5 @@ variables:
 
 steps:
 - script:
-    docker-compose up -d
+    docker-compose up --no-build -d
     docker-compose down
