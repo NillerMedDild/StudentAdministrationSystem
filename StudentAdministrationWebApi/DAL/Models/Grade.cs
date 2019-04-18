@@ -13,21 +13,21 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// <summary>
         /// A unique ID for the grade.
         /// </summary>
-        public int Id;
+        public int Id { get; set; }
 
         /// <summary>
         /// The ID of the relevant course.
         /// </summary>
-        public int CourseId;
+        public int CourseId { get; set; }
 
         /// <summary>
         /// The ID of the relevant student.
         /// </summary>
-        public int StudentId;
+        public int StudentId { get; set; }
 
         /// <summary>
         /// The grade the student has received in the course.
         /// </summary>
-        public double Score;
+        public double Score { get; set; }
     }
 }

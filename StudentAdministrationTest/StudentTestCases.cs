@@ -1,5 +1,4 @@
 ﻿using StudentAdministrationWebApi.DAL.Models;
-using StudentAdministrationWebApi.Managers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -9,11 +8,9 @@ namespace StudentAdministrationTest
 {
     public class StudentTestCases : DatabaseFixture
     {
-        private readonly StudentManager _studentManager;
 
         public StudentTestCases() : base("StudentContext")
         {
-            _studentManager = new StudentManager(ContextFactory.BuildContext());
         }
 
         [Fact]
@@ -29,7 +26,7 @@ namespace StudentAdministrationTest
                 appContext.SaveChanges();
 
                 // Act
-                var data = _studentManager.RetrieveAllStudents();
+                var data = appContext.Students;
 
                 // Assert
                 Assert.Contains(data, e => e.Id == foo.Id);

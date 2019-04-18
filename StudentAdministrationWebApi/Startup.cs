@@ -37,7 +37,7 @@ namespace StudentAdministrationWebApi
             });
 
             services.AddDbContextPool<ApplicationDbContext>(options =>
-               options.UseMySql(Configuration.GetConnectionString("StudentAdministrationDB")));
+               options.UseMySql(Configuration.GetConnectionString("StudentAdministrationDb")));
 
 
             services.AddSwaggerGen(config => {
@@ -53,19 +53,19 @@ namespace StudentAdministrationWebApi
                     }
                 });
                 //Used for uploading files through Swagger, has no feasable uses at the moment.
-                //config.OperationFilter<FormFileSwaggerFilter>();
+                config.OperationFilter<FormFileSwaggerFilter>();
             });
 
             services.AddCors();
-            //services.AddLogging(l => l.AddConsole());
+            services.AddLogging(l => l.AddConsole());
 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            //loggerFactory.AddConsole(Configuration.GetSection("Logging")); //log levels set in your configuration
-            //loggerFactory.AddDebug();
+            loggerFactory.AddConsole(Configuration.GetSection("Logging")); //log levels set in your configuration
+            loggerFactory.AddDebug();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

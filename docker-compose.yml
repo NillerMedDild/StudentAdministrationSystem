@@ -18,7 +18,7 @@ services:
     ports: 
       - "22000:80"
     volumes:
-      - studentadmnistrationdb-filestorage-volume:/app/filestorage
+      - studentadministrationdb-filestorage-volume:/app/filestorage
     container_name : studentadministration_api
 
   studentadministrationdb:
@@ -31,11 +31,11 @@ services:
         - "3200:3306"
     environment:
         MYSQL_ROOT_PASSWORD: password
-        MYSQL_DATABASE: studentadministationstore
+        MYSQL_DATABASE: studentadministrationstore
     volumes:
-        - studentadmnistrationdb-db-volume:/var/lib/mysql
+        - studentadministrationdb-db-volume:/var/lib/mysql
     container_name : studentadministration_db
         
 volumes:
-  studentadmnistrationdb-db-volume:
-  studentadmnistrationdb-filestorage-volume:
+  studentadministrationdb-db-volume:
+  studentadministrationdb-filestorage-volume:
