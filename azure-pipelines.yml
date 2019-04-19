@@ -14,5 +14,4 @@ variables:
 
 steps:
 - script:
-    docker-compose -f docker-compose.yml up -d
-    docker-compose down
+    docker build StudentAdministrationWebApi/Dockerfile -d
