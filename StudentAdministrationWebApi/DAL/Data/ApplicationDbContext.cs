@@ -9,7 +9,7 @@ namespace StudentAdministrationWebApi.DAL.Data
         public DbSet<Student> Students { get; set; }
         public DbSet<Teacher> Teachers { get; set; }
         public DbSet<Course> Courses { get; set; }
-        public DbSet<Grade> Grades { get; set; }
+        //public DbSet<Grade> Grades { get; set; }
 
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
             : base(options)
@@ -23,32 +23,42 @@ namespace StudentAdministrationWebApi.DAL.Data
             // For example, you can rename the ASP.NET Identity table names and more.
             // Add your customizations after calling base.OnModelCreating(builder);
             builder.Entity<Student>(
-                entity => 
+                entity =>
                 {
                     entity.HasKey(e => e.Id);
-                    entity.HasMany(e => e.Courses);
                 });
 
             builder.Entity<Teacher>(
                 entity =>
                 {
                     entity.HasKey(e => e.Id);
-                    entity.HasMany(e => e.Courses);
                 });
 
             builder.Entity<Course>(
                 entity => 
                 {
                     entity.HasKey(e => e.Id);
-                    entity.HasMany(e => e.Teachers);
-                    entity.HasMany(e => e.Students);
-
                 });
-
+            /*
             builder.Entity<Grade>(
                 entity =>
                 {
                     entity.HasKey(e => e.Id);
+                    entity.HasOne<Course>(e => e.Course);
+                });*/
+            builder.Entity<CourseStudent>(
+                entity =>
+                {
+                    entity.HasKey(cs => new { cs.CourseId, cs.StudentId });
+                    entity.HasOne(cs => cs.Course).WithMany(c => c.CourseStudents).HasForeignKey(cs => cs.CourseId);
+                    entity.HasOne(cs => cs.Student).WithMany(s => s.StudentCourses).HasForeignKey(cs => cs.StudentId);
+                });
+            builder.Entity<CourseTeacher>(
+                entity =>
+                {
+                    entity.HasKey(cs => new { cs.CourseId, cs.TeacherId });
+                    entity.HasOne(cs => cs.Course).WithMany(c => c.CourseTeachers).HasForeignKey(cs => cs.CourseId);
+                    entity.HasOne(cs => cs.Teacher).WithMany(t => t.TeacherCourses).HasForeignKey(cs => cs.TeacherId);
                 });
         }
     }

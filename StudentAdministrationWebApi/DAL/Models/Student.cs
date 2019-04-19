@@ -36,14 +36,15 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Email { get; set; }
 
         /// <summary>
-        /// Flag indicating whether a person is currently active or historic.
+        /// A flag indicating whether a person is currently active or historic.
         /// </summary>
         public bool Historic { get; set; }
 
         /// <summary>
-        /// Virtual reference to provide easy access to courses relevant to the person.
+        /// A virtual reference to all course-student pairs.
         /// </summary>
-        public virtual ICollection<Course> Courses { get; set; }
-        
+        public virtual ICollection<CourseStudent> StudentCourses { get; set; }
+
+
     }
 }

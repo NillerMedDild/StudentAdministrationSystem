@@ -26,13 +26,18 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// Virtual reference to provide easy access to teachers relevant to the course.
+        /// A flag indicating whether a person is currently active or historic.
         /// </summary>
-        public virtual ICollection<Teacher> Teachers { get; set; }
+        public bool Historic { get; set; }
 
         /// <summary>
-        /// Virtual reference to provide easy access to students relevant to the course.
+        /// A virtual reference to all course-student pairs.
         /// </summary>
-        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<CourseStudent> CourseStudents { get; set; }
+
+        /// <summary>
+        /// A virtual reference to all course-teacher pairs.
+        /// </summary>
+        public virtual ICollection<CourseTeacher> CourseTeachers { get; set; }
     }
 }
