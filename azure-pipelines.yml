@@ -13,12 +13,22 @@ pool:
 variables:
   buildConfiguration: 'Release'
   dockerId: 'studentadministrationsystem'
-  imageName: 'studentadministrationwebapi'
+  imageWebApi: 'studentadministrationwebapi'
+  imageTest: 'studentadministrationtest'
+  imageDb: 'studentadministrationdb'
   
 steps:
 - task: DockerCompose@0
   inputs:
     azureSubscriptionEndpoint: 'Free Trial(d33d304c-a224-4594-81f7-9e483d6e7055)'
-    azureContainerRegistry: '{"loginServer":"studentadministrationsystem.azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/studentadministrationsystem/providers/Microsoft.ContainerRegistry/registries/studentadministrationsystem"}'
+    azureContainerRegistry: '{"loginServer":"$(dockerId).azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/$(dockerId)/providers/Microsoft.ContainerRegistry/registries/$(dockerId)"}'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'build'
+
+- script: |
+    docker login -u $(dockerId) -p $(pswd) $(dockerId).azurecr.io
+    docker push $(dockerId).azurecr.io/$(imageWebApi)
+    docker push $(dockerId).azurecr.io/$(imageTest)
+    docker push $(dockerId).azurecr.io/$(imageDb)
+  env:
+    pswd: $(dockerPassword)
