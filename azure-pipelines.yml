@@ -16,6 +16,10 @@ variables:
   imageName: 'studentadministrationwebapi'
   
 steps:    
+- task: DockerInstaller@0
+  inputs:
+    dockerVersion: '17.09.0-ce'
+
 - script:
     docker build -t $(dockerId)/$(imageName) .
     docker login -u $(dockerId) -p $(pswd)
