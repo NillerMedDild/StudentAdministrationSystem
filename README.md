@@ -2,21 +2,25 @@
 Student Administration System is an example project consisting of an ASP.NET Core frontend, .NET Core backend, and MySQL/Entity Framework database. 
 It's purpose is to act as a learning tool for myself, and a showcase of my development capabilities.
 
-##Docker
+## Docker
 The server software uses docker as the platform to be deployed and maintaned on.
 
-###Containers
+### Containers
 Student Administration System is divided into three docker containers, linked with Docker Compose.
 
-####Database
+### Database
 Contains the database of the system.\
-**MySQL 5.7**
+*Uses MySQL 5.7*
 
-####WebApi
+### WebApi
 Handles the API that faciliates the communication between the frontend and the backend.\
-**.NET Core 2.1**
+*Uses ASP.NET Core 2.1*
 
-####Dependencies
+### Test
+Handles unit testing of the backend
+*Uses XUNIT 2.4.1*
+
+#### Dependencies
 - Microsoft.AspNetCore.All v2.2.4
 - Microsoft.AspNetCore.App v2.2.4
 - Microsoft.AspNetCore.Razor.Design v2.2.0
