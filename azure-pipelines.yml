@@ -16,9 +16,9 @@ variables:
   imageName: 'studentadministrationwebapi'
   
 steps:
-    - task: DockerCompose@0
-      inputs:
-        azureSubscriptionEndpoint: 'Free Trial(d33d304c-a224-4594-81f7-9e483d6e7055)'
-        azureContainerRegistry: '{"loginServer":"studentadministrationsystem.azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/studentadministrationsystem/providers/Microsoft.ContainerRegistry/registries/studentadministrationsystem"}'
-        action: 'Run a Docker Compose command'
-        dockerComposeCommand: 'up --build'
+- task: DockerCompose@0
+  inputs:
+    azureSubscriptionEndpoint: 'Free Trial(d33d304c-a224-4594-81f7-9e483d6e7055)'
+    azureContainerRegistry: '{"loginServer":"studentadministrationsystem.azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/studentadministrationsystem/providers/Microsoft.ContainerRegistry/registries/studentadministrationsystem"}'
+    action: 'Run a Docker Compose command'
+    dockerComposeCommand: 'build'
