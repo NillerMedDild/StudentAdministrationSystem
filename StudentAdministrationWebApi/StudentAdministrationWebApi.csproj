@@ -5,7 +5,7 @@
     <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
     <UserSecretsId>e9894f97-dd9a-4014-b2da-ffb53283bdd8</UserSecretsId>
     <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
-    <StartupObject>Program</StartupObject>
+    <StartupObject>StudentAdministrationWebApi.Program</StartupObject>
   </PropertyGroup>
 
   <ItemGroup>
