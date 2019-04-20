@@ -8,13 +8,17 @@ The server software uses docker as the platform to be deployed and maintaned on.
 ### Containers
 Student Administration System is divided into three docker containers, linked with Docker Compose.
 
-#### Database
+### Database
 Contains the database of the system.\
-**MySQL 5.7**
+*Uses MySQL 5.7*
 
-#### WebApi
+### WebApi
 Handles the API that faciliates the communication between the frontend and the backend.\
-**.NET Core 2.1**
+*Uses ASP.NET Core 2.1*
+
+### Test
+Handles unit testing of the backend
+*Uses XUNIT 2.4.1*
 
 #### Dependencies
 - Microsoft.AspNetCore.All v2.2.4
