@@ -20,6 +20,11 @@ variables:
 steps:
 - script: |
     docker login -u $(dockerId) -p $(accessKey) $(dockerId).azurecr.io
+    docker push $(dockerId).azurecr.io/$(imageWebApi)
+    docker push $(dockerId).azurecr.io/$(imageTest)
+    docker push $(dockerId).azurecr.io/$(imageDb)
+  env:
+    accessKey: $(accessKey)
 
 - task: DockerCompose@0
   inputs:
@@ -27,9 +32,3 @@ steps:
     azureContainerRegistry: '{"loginServer":"$(dockerId).azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/$(dockerId)/providers/Microsoft.ContainerRegistry/registries/$(dockerId)"}'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'build'
-
-- script: |
-    docker login -u $(dockerId) -p $(accessKey) $(dockerId).azurecr.io
-    docker push $(dockerId).azurecr.io/$(imageWebApi)
-    docker push $(dockerId).azurecr.io/$(imageTest)
-    docker push $(dockerId).azurecr.io/$(imageDb)
