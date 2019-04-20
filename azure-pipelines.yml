@@ -16,17 +16,26 @@ variables:
   imageWebApi: 'studentadministrationwebapi'
   imageTest: 'studentadministrationtest'
   imageDb: 'studentadministrationdb'
-  
+  azureSubscriptionEndpoint: Free Trial(d33d304c-a224-4594-81f7-9e483d6e7055)'
+  azureContainerRegistry: ''
+
 steps:
+- task: Docker@1
+  displayName: Container registry login
+  inputs:
+    command: 'login'
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
+    azureContainerRegistry: '{"loginServer":"$(dockerId).azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/$(dockerId)/providers/Microsoft.ContainerRegistry/registries/$(dockerId)"}'
+
 - task: DockerCompose@0
   inputs:
-    azureSubscriptionEndpoint: 'Free Trial(d33d304c-a224-4594-81f7-9e483d6e7055)'
+    azureSubscriptionEndpoint: $(azureSubscriptionEndpoint)
     azureContainerRegistry: '{"loginServer":"$(dockerId).azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/$(dockerId)/providers/Microsoft.ContainerRegistry/registries/$(dockerId)"}'
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'build'
 
 - script: |
-    docker login --username $(dockerId) --password-stdin $env:pswd $(dockerId).azurecr.io
+    docker login -u $(dockerId) -p $env:pswd $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageWebApi)
     docker push $(dockerId).azurecr.io/$(imageTest)
     docker push $(dockerId).azurecr.io/$(imageDb)
