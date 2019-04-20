@@ -12,9 +12,16 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
-
+  dockerId: 'niels.pilgaard@hotmail.com'
+  imageName: 'studentadministrationwebapi'
+  
 steps:
 - task: DockerCompose@0
   inputs:
     action: 'Run a Docker Compose command'
     dockerComposeCommand: 'docker-compose up --build'
+    
+- script:
+    docker build -t $(dockerId)/$(imageName) .
+  env:
+    pswd: $(dockerPassword)
