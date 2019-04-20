@@ -14,4 +14,4 @@ variables:
 
 steps:
 - script:
-    docker build StudentAdministrationWebApi/Dockerfile
+    docker build StudentAdministrationWebApi/Dockerfile .
