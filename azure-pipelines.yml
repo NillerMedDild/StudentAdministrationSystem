@@ -31,4 +31,4 @@ steps:
     docker push $(dockerId).azurecr.io/$(imageTest)
     docker push $(dockerId).azurecr.io/$(imageDb)
   env:
-    pswd: $(dockerPassword)
+    pswd: $(accessKey)
