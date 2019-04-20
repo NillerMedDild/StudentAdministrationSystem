@@ -26,7 +26,7 @@ steps:
     dockerComposeCommand: 'build'
 
 - script: |
-    docker login -u $(dockerId) -p $env:pswd $(dockerId).azurecr.io
+    docker login --username $(dockerId) --password-stdin $env:pswd $(dockerId).azurecr.io
     docker push $(dockerId).azurecr.io/$(imageWebApi)
     docker push $(dockerId).azurecr.io/$(imageTest)
     docker push $(dockerId).azurecr.io/$(imageDb)
