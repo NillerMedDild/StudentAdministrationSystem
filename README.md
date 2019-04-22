@@ -1,4 +1,5 @@
 # Student Administration System
+[![Build Status](https://dev.azure.com/Nielspilgaard/StudentAdministrationSystem/_apis/build/status/NillerMedDild.StudentAdministrationSystem?branchName=master)](https://dev.azure.com/Nielspilgaard/StudentAdministrationSystem/_build/latest?definitionId=2&branchName=master)
 Student Administration System is an example project consisting of an ASP.NET Core frontend, .NET Core backend, and MySQL/Entity Framework database. 
 It's purpose is to act as a learning tool for myself, and a showcase of my development capabilities.
 
