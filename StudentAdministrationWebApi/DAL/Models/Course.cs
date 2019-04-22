@@ -26,9 +26,19 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Description { get; set; }
 
         /// <summary>
-        /// A flag indicating whether a person is currently active or historic.
+        /// A flag indicating whether the course is currently active or historic.
         /// </summary>
         public bool Historic { get; set; }
+
+        /// <summary>
+        /// The id of the school where the course is taught.
+        /// </summary>
+        public int SchoolId { get; set; }
+
+        /// <summary>
+        /// A virtual reference to provide easy access to the school relevant to the course.
+        /// </summary>
+        public virtual School School { get; set; }
 
         /// <summary>
         /// A virtual reference to all course-student pairs.

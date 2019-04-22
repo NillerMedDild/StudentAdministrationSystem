@@ -25,6 +25,7 @@ CREATE TABLE IF NOT EXISTS Courses (
 	Title VARCHAR(255) NULL DEFAULT NULL,
 	Description VARCHAR(16384) NULL DEFAULT NULL,
 	Historic BIT(1) NOT NULL DEFAULT b'0',
+	SchoolId INTEGER NULL DEFAULT NULL,
 	PRIMARY KEY (Id)
 );
 
@@ -42,3 +43,5 @@ CREATE TABLE IF NOT EXISTS CourseTeachers (
 	Historic BIT(1) NOT NULL DEFAULT b'0',
 	PRIMARY KEY (CourseId, TeacherId)
 );
+
+//TODO: Implement School

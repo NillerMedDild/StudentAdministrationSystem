@@ -31,7 +31,7 @@ namespace StudentAdministrationWebApi.DAL.Models
         public virtual Teacher Teacher { get; set; }
 
         /// <summary>
-        /// A flag indicating whether a person is currently active or historic.
+        /// A flag indicating whether the course-teacher relationship is currently active or historic.
         /// </summary>
         public bool Historic { get; set; }
 

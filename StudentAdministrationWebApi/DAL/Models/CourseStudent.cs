@@ -26,7 +26,7 @@ namespace StudentAdministrationWebApi.DAL.Models
         public int StudentId { get; set; }
 
         /// <summary>
-        /// A virtual reference to provide easy access to student relevant to the course.
+        /// A virtual reference to provide easy access to the student relevant to the course.
         /// </summary>
         public virtual Student Student { get; set; }
 
@@ -36,7 +36,7 @@ namespace StudentAdministrationWebApi.DAL.Models
         public double Score { get; set; }
 
         /// <summary>
-        /// A flag indicating whether a person is currently active or historic.
+        /// A flag indicating whether the course-student relationship is currently active or historic.
         /// </summary>
         public bool Historic { get; set; }
 
