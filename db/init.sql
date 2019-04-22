@@ -29,16 +29,16 @@ CREATE TABLE IF NOT EXISTS Courses (
 );
 
 CREATE TABLE IF NOT EXISTS CourseStudents (
-	CourseId INT(11) NULL DEFAULT NULL,
-	StudentId INT(11) NULL DEFAULT NULL,
+	CourseId INT(11) NOT NULL,
+	StudentId INT(11) NOT NULL,
 	Score INT(11) NULL DEFAULT NULL,
 	Historic BIT(1) NOT NULL DEFAULT b'0',
 	PRIMARY KEY (CourseId, StudentId)
 );
 
 CREATE TABLE IF NOT EXISTS CourseTeachers (
-	CourseId INT(11) NULL DEFAULT NULL,
-	TeacherId INT(11) NULL DEFAULT NULL,
+	CourseId INT(11) NOT NULL,
+	TeacherId INT(11) NOT NULL,
 	Historic BIT(1) NOT NULL DEFAULT b'0',
 	PRIMARY KEY (CourseId, TeacherId)
 );
