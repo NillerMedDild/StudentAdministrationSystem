@@ -52,38 +52,24 @@ namespace StudentAdministrationWebApi
                         Email = "niels.pilgaard@hotmail.com"
                     }
                 });
-                //Used for uploading files through Swagger, has no feasable uses at the moment.
+                //Used for uploading files through Swagger, has no uses at the moment.
                 config.OperationFilter<FormFileSwaggerFilter>();
             });
-
-            services.AddCors();
-            services.AddLogging(l => l.AddConsole());
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
-            loggerFactory.AddConsole(Configuration.GetSection("Logging")); //log levels set in your configuration
-            loggerFactory.AddDebug();
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-                app.UseHsts();
 
             }
             else
             {
+                app.UseExceptionHandler("/Error");
                 app.UseHsts();
             }
-
-            app.UseCors(builder =>
-                builder
-                .AllowAnyHeader()
-                .AllowAnyMethod()
-                .AllowCredentials()
-                .AllowAnyOrigin()
-                );
 
             app.UseHttpsRedirection();
             app.UseMvc();
@@ -91,8 +77,6 @@ namespace StudentAdministrationWebApi
             app.UseSwaggerUI(c => {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "Student Administration WebApi - v1");
             });
-
-            app.UseStatusCodePages("text/plain", "Status code page, status code: {0}");
         }
     }
 }

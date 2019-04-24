@@ -16,7 +16,8 @@ services:
       dockerfile: StudentAdministrationWebApi/Dockerfile
     restart: unless-stopped
     ports: 
-      - "22000:80"
+      - "50000:80"
+      - "50001:443"
     volumes:
       - studentadministrationdb-filestorage-volume:/app/filestorage
     container_name : studentadministration_api

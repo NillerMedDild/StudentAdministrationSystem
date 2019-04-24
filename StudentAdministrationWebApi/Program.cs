@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
@@ -19,6 +20,25 @@ namespace StudentAdministrationWebApi
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>().Build();
+                .UseStartup<Startup>()
+                .UseUrls("https://+:443;http://+:80")
+                .UseKestrel(options =>
+                {
+                    var configuration = (IConfiguration)options.ApplicationServices.GetService(typeof(IConfiguration));
+                    var httpsPort = configuration.GetValue("ASPNETCORE_HTTPS_PORT", 443); // takes from environment
+                    var httpPort = configuration.GetValue("ASPNETCORE_HTTP_PORT", 80); // takes from environment
+                    var certPassword = configuration.GetValue<string>("CertPassword"); // takes from environment
+                    var certPath = configuration.GetValue<string>("CertPath"); //takes from environment
+
+                    Console.WriteLine($"{nameof(httpsPort)}: {httpsPort}");
+                    Console.WriteLine($"{nameof(certPassword)}: {certPassword}");
+                    Console.WriteLine($"{nameof(certPath)}: {certPath}");
+
+                    //IPAddress.Loopback doesn't work in Docker
+                    options.Listen(IPAddress.Any, httpsPort, listenOptions =>
+                    {
+                        listenOptions.UseHttps(certPath, certPassword);
+                    });
+                }).Build();
     }
 }

@@ -22,6 +22,11 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Name { get; set; }
 
         /// <summary>
+        /// The address of the school.
+        /// </summary>
+        public string Address { get; set; }
+
+        /// <summary>
         /// The level of the education the school provides.
         /// </summary>
         public EducationLevel EducationLevel { get; set; }

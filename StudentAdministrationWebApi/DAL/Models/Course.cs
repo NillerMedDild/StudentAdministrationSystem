@@ -49,5 +49,15 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// A virtual reference to all course-teacher pairs.
         /// </summary>
         public virtual ICollection<CourseTeacher> CourseTeachers { get; set; }
+
+        /// <summary>
+        /// A virtual reference to all related lessons.
+        /// </summary>
+        public virtual ICollection<Lesson> Lessons { get; set; }
+
+        /// <summary>
+        /// A virtual reference to all related data objects.
+        /// </summary>
+        public virtual ICollection<DataObject> DataObjects { get; set; }
     }
 }
