@@ -21,6 +21,6 @@ COPY --from=publish /app .
 ARG CERT_PATH_DEST=/app/cert/localhost-dev.pfx
 ENV CertPath=$CERT_PATH_DEST
 RUN echo "Env CertPath value is: $CertPath"
-COPY cert/localhost-dev.pfx $CertPath
+COPY StudentAdministrationWebApi/cert/localhost-dev.pfx $CertPath
 
 ENTRYPOINT ["dotnet", "StudentAdministrationWebApi.dll"]
