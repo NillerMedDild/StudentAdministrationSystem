@@ -21,11 +21,9 @@ variables:
   azureContainerRegistry: '{"loginServer":"$(dockerId).azurecr.io", "id" : "/subscriptions/d33d304c-a224-4594-81f7-9e483d6e7055/resourceGroups/$(dockerId)/providers/Microsoft.ContainerRegistry/registries/$(dockerId)"}'
 
 steps:
-- task: AzurePowerShell@4
+- task: PowerShell@2
   inputs:
-    ConnectedServiceNameARM: 'Free Trial(d33d304c-a224-4594-81f7-9e483d6e7055)'
-    ScriptType: 'FilePath'
-    ScriptPath: 'generate-dev-cert.ps1'
+    filePath: 'generate-dev-cert.ps1'
     
 - task: Docker@1
   displayName: Container registry login
