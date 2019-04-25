@@ -1,5 +1,4 @@
 $password = [guid]::newguid() #if you want a random password for each developer machine, use this GUID -> [guid]::newguid()
-$MYSQL_ROOT_PASSWORD = [guid]::newguid()
 $projectPath = "$($PSScriptRoot)StudentAdministrationWebApi\StudentAdministrationWebApi.csproj"
 
 $certPath = "StudentAdministrationWebApi\cert\localhost-dev.pfx"
@@ -17,5 +16,3 @@ dotnet user-secrets --project $projectPath set CertPassword "$password"
 
 #This setting for CertPath is required for running in VisualStudio, for Docker it is overriden with environment variable
 dotnet user-secrets --project $projectPath set CertPath "$certPath"
-
-dotnet user-secrets --project $projectPath set MYSQL_ROOT_PASSWORD "$MYSQL_ROOT_PASSWORD"

@@ -31,7 +31,7 @@ services:
     ports:
         - "3200:3306"
     environment:
-        MYSQL_ROOT_PASSWORD: password
+        MYSQL_ROOT_PASSWORD: dkL8E6LS5UCZJjNf
         MYSQL_DATABASE: studentadministrationstore
     volumes:
         - studentadministrationdb-db-volume:/var/lib/mysql
