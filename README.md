@@ -11,6 +11,8 @@ It's purpose is to act as a learning tool for myself, and a showcase of my devel
 - Open the solution with Visual Studio.
 - Run the solution with the `docker-compose.sh` script, or run it through Visual Studio. Note, if you want to switch launch method, use the `docker-clear-containers.sh` script first, to remove old containers.
 
+The local Swagger URL is `https://localhost:50001/swagger/index.html`, Visual Studio automatically launches it when the solution is run.
+
 ### Program Dependencies
 - Docker
 - Visual Studio
