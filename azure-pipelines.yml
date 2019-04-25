@@ -23,7 +23,7 @@ variables:
 steps:
 - task: PowerShell@2
   inputs:
-    filePath: 'generate-dev-cert-azure.ps1'
+    filePath: 'init-dev-env-azure.ps1'
     
 - task: Docker@1
   displayName: Container registry login
