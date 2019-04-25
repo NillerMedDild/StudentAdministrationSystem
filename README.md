@@ -1,28 +1,36 @@
 # Student Administration System
 [![Build Status](https://dev.azure.com/Nielspilgaard/StudentAdministrationSystem/_apis/build/status/NillerMedDild.StudentAdministrationSystem?branchName=master)](https://dev.azure.com/Nielspilgaard/StudentAdministrationSystem/_build/latest?definitionId=2&branchName=master)
 
-Student Administration System is an example project consisting of an ASP.NET Core frontend, .NET Core backend, and MySQL/Entity Framework database. 
+Student Administration System is an example project consisting of an ASP.NET Core frontend, .NET Core backend, and MySQL/Entity Framework database. It will eventually have multiple web frontends, made with React, Angular and Vue.
+
 It's purpose is to act as a learning tool for myself, and a showcase of my development capabilities.
 
-## Docker
-The server software uses docker as the platform to be deployed and maintaned on.
+## Setup
+- Fork, clone or download the solution.
+- Run the `generate-dev-cert.ps1` script, found in the root directory.
+- Open the solution with Visual Studio.
+- Run the solution with the `docker-compose.sh` script, or run it through Visual Studio. Note, if you want to switch launch method, use the `docker-clear-containers.sh` script first, to remove old containers.
+
+### Program Dependencies
+- Docker
+- Visual Studio
 
 ### Containers
-Student Administration System is divided into three docker containers, linked with Docker Compose.
+Student Administration System is currently divided into three docker containers, linked with Docker Compose.
 
-### Database
+#### Database
 Contains the database of the system.\
 *Uses MySQL 5.7*
 
-### WebApi
+#### WebApi
 Handles the API that faciliates the communication between the frontend and the backend.\
 *Uses ASP.NET Core 2.1*
 
-### Test
+#### Test
 Handles unit testing of the backend
 *Uses XUNIT 2.4.1*
 
-#### Dependencies
+#### Package Dependencies
 - Microsoft.AspNetCore.All v2.2.4
 - Microsoft.AspNetCore.App v2.2.4
 - Microsoft.AspNetCore.Razor.Design v2.2.0
@@ -33,3 +41,5 @@ Handles unit testing of the backend
 - Swashbuckle.AspNetCore v4.0.1
 - xunit v2.4.1
 - xunit.runner.visualstudio v2.4.1
+
+
