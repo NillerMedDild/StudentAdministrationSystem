@@ -41,6 +41,16 @@ namespace StudentAdministrationWebApi.DAL.Models
         public bool Historic { get; set; }
 
         /// <summary>
+        /// The id of the school where the teacher works.
+        /// </summary>
+        public int SchoolId { get; set; }
+
+        /// <summary>
+        /// A virtual reference to provide easy access to the school relevant to the teacher.
+        /// </summary>
+        public virtual School School { get; set; }
+
+        /// <summary>
         /// A virtual reference to all course-teacher pairs.
         /// </summary>
         public virtual ICollection<CourseTeacher> TeacherCourses { get; set; }

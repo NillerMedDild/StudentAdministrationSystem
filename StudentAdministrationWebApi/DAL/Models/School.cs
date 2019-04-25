@@ -45,5 +45,15 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// A virtual reference to all courses taught at the school.
         /// </summary>
         public virtual ICollection<Course> Courses { get; set; }
+
+        /// <summary>
+        /// A virtual reference to all teachers working at the school.
+        /// </summary>
+        public virtual ICollection<Teacher> Teachers { get; set; }
+
+        /// <summary>
+        /// A virtual reference to all students who are enrolled at the school.
+        /// </summary>
+        public virtual ICollection<Student> Students { get; set; }
     }
 }
