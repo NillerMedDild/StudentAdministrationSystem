@@ -21,6 +21,11 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Description { get; set; }
 
         /// <summary>
+        /// The location where the lesson is held.
+        /// </summary>
+        public string Location { get; set; }
+
+        /// <summary>
         /// The date and start time of the lesson.
         /// </summary>
         public DateTime DateTime { get; set; }
@@ -29,11 +34,6 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// The duration of the lesson, in minutes.
         /// </summary>
         public int Duration { get; set; }
-
-        /// <summary>
-        /// The location where the lesson is held.
-        /// </summary>
-        public string Location { get; set; }
 
         /// <summary>
         /// A flag indicating whether the lesson is currently active or historic.

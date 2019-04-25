@@ -27,6 +27,11 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Information { get; set; }
 
         /// <summary>
+        /// A flag indicating whether the data object is currently active or historic.
+        /// </summary>
+        public bool Historic { get; set; }
+
+        /// <summary>
         /// The id of the relevant lesson.
         /// </summary>
         public int LessonId { get; set; }

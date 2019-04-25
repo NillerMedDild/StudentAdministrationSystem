@@ -21,7 +21,6 @@ namespace StudentAdministrationWebApi
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseStartup<Startup>()
-                .UseUrls("https://+:443;http://+:80")
                 .UseKestrel(options =>
                 {
                     var configuration = (IConfiguration)options.ApplicationServices.GetService(typeof(IConfiguration));
@@ -34,7 +33,6 @@ namespace StudentAdministrationWebApi
                     Console.WriteLine($"{nameof(certPassword)}: {certPassword}");
                     Console.WriteLine($"{nameof(certPath)}: {certPath}");
 
-                    //IPAddress.Loopback doesn't work in Docker
                     options.Listen(IPAddress.Any, httpsPort, listenOptions =>
                     {
                         listenOptions.UseHttps(certPath, certPassword);
