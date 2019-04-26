@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using TeacherAdministrationWebApi.DAL.Data;
-using TeacherAdministrationWebApi.DAL.Models;
+using StudentAdministrationWebApi.DAL.Data;
+using StudentAdministrationWebApi.DAL.Models;
 
-namespace TeacherAdministrationWebApi.Controllers
+namespace StudentAdministrationWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
