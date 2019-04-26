@@ -21,14 +21,14 @@ namespace StudentAdministrationWebApi.Controllers
             _context = context;
         }
 
-        // GET: api/DataObjects
+
         [HttpGet]
         public IEnumerable<DataObject> GetDataObjects()
         {
             return _context.DataObjects;
         }
 
-        // GET: api/DataObjects/5
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetDataObject([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace StudentAdministrationWebApi.Controllers
             return Ok(dataObject);
         }
 
-        // PUT: api/DataObjects/5
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutDataObject([FromRoute] int id, [FromBody] DataObject dataObject)
         {
@@ -97,7 +97,7 @@ namespace StudentAdministrationWebApi.Controllers
             return CreatedAtAction("GetDataObject", new { id = dataObject.Id }, dataObject);
         }
 
-        // DELETE: api/DataObjects/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteDataObject([FromRoute] int id)
         {

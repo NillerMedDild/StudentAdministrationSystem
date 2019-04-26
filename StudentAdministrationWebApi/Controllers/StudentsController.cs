@@ -21,14 +21,14 @@ namespace StudentAdministrationWebApi.Controllers
             _context = context;
         }
 
-        // GET: api/Students
+
         [HttpGet]
         public IEnumerable<Student> GetStudents()
         {
             return _context.Students;
         }
 
-        // GET: api/Students/5
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetStudent([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace StudentAdministrationWebApi.Controllers
             return Ok(student);
         }
 
-        // PUT: api/Students/5
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutStudent([FromRoute] int id, [FromBody] Student student)
         {
@@ -97,7 +97,7 @@ namespace StudentAdministrationWebApi.Controllers
             return CreatedAtAction("GetStudent", new { id = student.Id }, student);
         }
 
-        // DELETE: api/Students/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteStudent([FromRoute] int id)
         {

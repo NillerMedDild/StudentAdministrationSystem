@@ -21,14 +21,14 @@ namespace StudentAdministrationWebApi.Controllers
             _context = context;
         }
 
-        // GET: api/CourseStudents
+
         [HttpGet]
         public IEnumerable<CourseStudent> GetCourseStudents()
         {
             return _context.CourseStudents;
         }
 
-        // GET: api/CourseStudents/5
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCourseStudent([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace StudentAdministrationWebApi.Controllers
             return Ok(courseStudent);
         }
 
-        // PUT: api/CourseStudents/5
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCourseStudent([FromRoute] int id, [FromBody] CourseStudent courseStudent)
         {
@@ -91,6 +91,29 @@ namespace StudentAdministrationWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            var course = await _context.Courses.FindAsync(courseStudent.CourseId);
+            if (course == null)
+            {
+                
+                return BadRequest($"Course with ID {courseStudent.CourseId} not found.");
+            }
+
+            var student = await _context.Students.FindAsync(courseStudent.StudentId);
+            if (student == null)
+            {
+                return BadRequest($"Student with ID {courseStudent.StudentId} not found.");
+            }
+
+            var oldCourseStudent = await _context.CourseStudents.FindAsync(courseStudent.StudentId);
+            if (oldCourseStudent != null)
+            {
+                oldCourseStudent = await _context.CourseStudents.FindAsync(courseStudent.CourseId);
+                if (oldCourseStudent != null)
+                {
+                    return BadRequest($"CourseStudent with CourseId {courseStudent.CourseId} and StudentId {courseStudent.StudentId} already exists.");
+                }
+            }
+
             _context.CourseStudents.Add(courseStudent);
             try
             {
@@ -111,7 +134,7 @@ namespace StudentAdministrationWebApi.Controllers
             return CreatedAtAction("GetCourseStudent", new { id = courseStudent.CourseId }, courseStudent);
         }
 
-        // DELETE: api/CourseStudents/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCourseStudent([FromRoute] int id)
         {

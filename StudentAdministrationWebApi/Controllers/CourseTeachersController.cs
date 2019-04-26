@@ -5,10 +5,10 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using StudentAdministrationWebApi.DAL.Data;
-using StudentAdministrationWebApi.DAL.Models;
+using TeacherAdministrationWebApi.DAL.Data;
+using TeacherAdministrationWebApi.DAL.Models;
 
-namespace StudentAdministrationWebApi.Controllers
+namespace TeacherAdministrationWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -21,14 +21,14 @@ namespace StudentAdministrationWebApi.Controllers
             _context = context;
         }
 
-        // GET: api/CourseTeachers
+
         [HttpGet]
         public IEnumerable<CourseTeacher> GetCourseTeachers()
         {
             return _context.CourseTeachers;
         }
 
-        // GET: api/CourseTeachers/5
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetCourseTeacher([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace StudentAdministrationWebApi.Controllers
             return Ok(courseTeacher);
         }
 
-        // PUT: api/CourseTeachers/5
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutCourseTeacher([FromRoute] int id, [FromBody] CourseTeacher courseTeacher)
         {
@@ -91,6 +91,29 @@ namespace StudentAdministrationWebApi.Controllers
                 return BadRequest(ModelState);
             }
 
+            var course = await _context.Courses.FindAsync(courseTeacher.CourseId);
+            if (course == null)
+            {
+
+                return BadRequest($"Course with ID {courseTeacher.CourseId} not found.");
+            }
+
+            var student = await _context.Teachers.FindAsync(courseTeacher.TeacherId);
+            if (student == null)
+            {
+                return BadRequest($"Teacher with ID {courseTeacher.TeacherId} not found.");
+            }
+
+            var oldCourseTeacher = await _context.CourseTeachers.FindAsync(courseTeacher.TeacherId);
+            if (oldCourseTeacher != null)
+            {
+                oldCourseTeacher = await _context.CourseTeachers.FindAsync(courseTeacher.CourseId);
+                if (oldCourseTeacher != null)
+                {
+                    return BadRequest($"CourseTeacher with CourseId {courseTeacher.CourseId} and TeacherId {courseTeacher.TeacherId} already exists.");
+                }
+            }
+
             _context.CourseTeachers.Add(courseTeacher);
             try
             {
@@ -111,7 +134,7 @@ namespace StudentAdministrationWebApi.Controllers
             return CreatedAtAction("GetCourseTeacher", new { id = courseTeacher.CourseId }, courseTeacher);
         }
 
-        // DELETE: api/CourseTeachers/5
+
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteCourseTeacher([FromRoute] int id)
         {

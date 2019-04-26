@@ -21,14 +21,14 @@ namespace StudentAdministrationWebApi.Controllers
             _context = context;
         }
 
-        // GET: api/Teachers
+
         [HttpGet]
         public IEnumerable<Teacher> GetTeachers()
         {
             return _context.Teachers;
         }
 
-        // GET: api/Teachers/5
+
         [HttpGet("{id}")]
         public async Task<IActionResult> GetTeacher([FromRoute] int id)
         {
@@ -47,7 +47,7 @@ namespace StudentAdministrationWebApi.Controllers
             return Ok(teacher);
         }
 
-        // PUT: api/Teachers/5
+
         [HttpPut("{id}")]
         public async Task<IActionResult> PutTeacher([FromRoute] int id, [FromBody] Teacher teacher)
         {
@@ -97,7 +97,7 @@ namespace StudentAdministrationWebApi.Controllers
             return CreatedAtAction("GetTeacher", new { id = teacher.Id }, teacher);
         }
 
-        // DELETE: api/Teachers/5
+
         [HttpDelete("{id}")]
         //TODO: Implement the historic version of delete
         public async Task<IActionResult> DeleteTeacher([FromRoute] int id)
