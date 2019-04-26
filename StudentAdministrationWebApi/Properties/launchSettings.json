@@ -13,9 +13,9 @@
       "launchBrowser": true,
       "launchUrl": "swagger",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development",
+        "ASPNETCORE_URLS": "https://*:443",
         "ASPNETCORE_HTTPS_PORT": "443",
-        "ASPNETCORE_URLS": "https://*:443"
+        "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
     "StudentAdministrationWebApi": {
@@ -28,7 +28,8 @@
       "applicationUrl": "http://localhost:50523/"
     },
     "docker-compose": {
-      "commandName": "Executable"
+      "commandName": "Executable",
+      "workingDirectory": "C:\\Users\\Niels\\Documents\\Git Repository\\student-administration-system"
     }
   }
 }

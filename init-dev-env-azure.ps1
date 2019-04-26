@@ -1,5 +1,4 @@
 $password = [guid]::newguid() #if you want a random password for each developer machine, use this GUID -> [guid]::newguid()
-
 $projectPath = "$($PSScriptRoot)/StudentAdministrationWebApi/StudentAdministrationWebApi.csproj"
 
 $certPath = "StudentAdministrationWebApi/cert/localhost-dev.pfx"
