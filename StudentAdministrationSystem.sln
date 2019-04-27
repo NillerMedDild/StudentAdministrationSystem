@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAdministrationTest",
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{ECA040F9-0D58-47EE-B28A-56842FC8D7DE}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAdministrationWebReact", "StudentAdministrationWeb\StudentAdministrationWebReact.csproj", "{36E76C7E-181E-4072-8671-AA595F96FEAE}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "StudentAdministrationWebMVC", "StudentAdministrationWebRazer\StudentAdministrationWebMVC.csproj", "{BA17BEB5-5D83-4531-BAA4-0312E1AD1FE5}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -37,6 +41,14 @@ Global
 		{ECA040F9-0D58-47EE-B28A-56842FC8D7DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ECA040F9-0D58-47EE-B28A-56842FC8D7DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{ECA040F9-0D58-47EE-B28A-56842FC8D7DE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36E76C7E-181E-4072-8671-AA595F96FEAE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36E76C7E-181E-4072-8671-AA595F96FEAE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36E76C7E-181E-4072-8671-AA595F96FEAE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36E76C7E-181E-4072-8671-AA595F96FEAE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA17BEB5-5D83-4531-BAA4-0312E1AD1FE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA17BEB5-5D83-4531-BAA4-0312E1AD1FE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA17BEB5-5D83-4531-BAA4-0312E1AD1FE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA17BEB5-5D83-4531-BAA4-0312E1AD1FE5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
