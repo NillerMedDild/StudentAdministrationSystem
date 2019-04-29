@@ -1,7 +1,7 @@
 # Student Administration System
 [![Build Status](https://dev.azure.com/Nielspilgaard/StudentAdministrationSystem/_apis/build/status/NillerMedDild.StudentAdministrationSystem?branchName=master)](https://dev.azure.com/Nielspilgaard/StudentAdministrationSystem/_build/latest?definitionId=2&branchName=master)
 
-Student Administration System is an example project consisting of an ASP.NET Core WebApi, .NET Core backend for testing, and MySQL/Entity Framework database. It will eventually have multiple web frontends, made with React, Angular and Vue.
+Student Administration System is an example project consisting of an ASP.NET Core WebApi, .NET Core backend for testing, and MySQL/Entity Framework database. It will eventually have multiple web frontends, made with React, MVC and Vue.
 
 It's purpose is to act as a learning tool for myself, and a showcase of my development capabilities.
 
@@ -11,7 +11,7 @@ It's purpose is to act as a learning tool for myself, and a showcase of my devel
 - Open the solution with Visual Studio.
 - Run the solution with the `docker-compose.sh` script, or run it through Visual Studio. Note, if you want to switch launch method, use the `docker-clear-containers.sh` script first, to remove old containers.
 
-The local Swagger URL is `https://localhost:50001/swagger/index.html`, Visual Studio automatically launches it when the solution is run.
+The local Swagger URL is `https://localhost:44304/swagger/index.html`, Visual Studio automatically launches it when the solution is run with Docker Compose.
 
 ### Program Dependencies
 - Docker
