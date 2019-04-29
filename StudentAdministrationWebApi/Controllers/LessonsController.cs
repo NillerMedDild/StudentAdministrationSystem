@@ -112,8 +112,30 @@ namespace StudentAdministrationWebApi.Controllers
                 return NotFound();
             }
 
-            _context.Lessons.Remove(lesson);
-            await _context.SaveChangesAsync();
+            if (lesson.Historic)
+            {
+                return Ok();
+            }
+
+            lesson.Historic = true;
+
+            _context.Entry(lesson).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!LessonExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return Ok(lesson);
         }
