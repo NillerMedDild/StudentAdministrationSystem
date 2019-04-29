@@ -99,7 +99,6 @@ namespace StudentAdministrationWebApi.Controllers
 
 
         [HttpDelete("{id}")]
-        //TODO: Implement the historic version of delete
         public async Task<IActionResult> DeleteTeacher([FromRoute] int id)
         {
             if (!ModelState.IsValid)
@@ -113,8 +112,30 @@ namespace StudentAdministrationWebApi.Controllers
                 return NotFound();
             }
 
-            _context.Teachers.Remove(teacher);
-            await _context.SaveChangesAsync();
+            if (teacher.Historic)
+            {
+                return Ok();
+            }
+
+            teacher.Historic = true;
+
+            _context.Entry(teacher).State = EntityState.Modified;
+
+            try
+            {
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                if (!TeacherExists(id))
+                {
+                    return NotFound();
+                }
+                else
+                {
+                    throw;
+                }
+            }
 
             return Ok(teacher);
         }
