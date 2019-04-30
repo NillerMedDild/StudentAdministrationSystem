@@ -41,14 +41,24 @@ namespace StudentAdministrationWebApi.DAL.Models
         public virtual School School { get; set; }
 
         /// <summary>
-        /// A virtual reference to all course-student pairs.
+        /// The id of the student relevant to this course.
         /// </summary>
-        public virtual ICollection<CourseStudent> CourseStudents { get; set; }
+        public int StudentId { get; set; }
 
         /// <summary>
-        /// A virtual reference to all course-teacher pairs.
+        /// A virtual reference to a student relevant to this course.
         /// </summary>
-        public virtual ICollection<CourseTeacher> CourseTeachers { get; set; }
+        public virtual Student Student { get; set; }
+
+        /// <summary>
+        /// The id of the teacher relevant to this course.
+        /// </summary>
+        public int TeacherId { get; set; }
+
+        /// <summary>
+        /// A virtual reference to a teacher relevant to this course.
+        /// </summary>
+        public virtual Teacher Teacher { get; set; }
 
         /// <summary>
         /// A virtual reference to all related lessons.

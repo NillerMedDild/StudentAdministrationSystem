@@ -6,10 +6,15 @@ using System.Threading.Tasks;
 namespace StudentAdministrationWebApi.DAL.Models
 {
     /// <summary>
-    /// The course teachers class defines a collection of teachers for a specific course.
+    /// The grade class defines the score a student has received in a course.
     /// </summary>
-    public class CourseTeacher
+    public class Grade
     {
+        /// <summary>
+        /// A unique identifer to the grade.
+        /// </summary>
+        public int Id { get; set; }
+
         /// <summary>
         /// ID of the relevant course.
         /// </summary>
@@ -21,17 +26,22 @@ namespace StudentAdministrationWebApi.DAL.Models
         public virtual Course Course { get; set; }
 
         /// <summary>
-        /// ID of the relevant teacher.
+        /// ID of the relevant student.
         /// </summary>
-        public int TeacherId { get; set; }
+        public int StudentId { get; set; }
 
         /// <summary>
-        /// A virtual reference to provide easy access to teacher relevant to the course.
+        /// A virtual reference to the student.
         /// </summary>
-        public virtual Teacher Teacher { get; set; }
+        public virtual Student Student { get; set; }
 
         /// <summary>
-        /// A flag indicating whether the course-teacher relationship is currently active or historic.
+        /// The grade the student has received in the course.
+        /// </summary>
+        public string Score { get; set; }
+
+        /// <summary>
+        /// A flag indicating whether the grade is valid or not.
         /// </summary>
         public bool Historic { get; set; }
 

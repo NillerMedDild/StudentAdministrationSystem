@@ -114,7 +114,7 @@ namespace StudentAdministrationWebApi.Controllers
 
             if (school.Historic)
             {
-                return Ok();
+                return Ok(school);
             }
 
             school.Historic = true;

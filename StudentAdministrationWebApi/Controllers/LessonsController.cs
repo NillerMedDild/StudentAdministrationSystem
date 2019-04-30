@@ -114,7 +114,7 @@ namespace StudentAdministrationWebApi.Controllers
 
             if (lesson.Historic)
             {
-                return Ok();
+                return Ok(lesson);
             }
 
             lesson.Historic = true;

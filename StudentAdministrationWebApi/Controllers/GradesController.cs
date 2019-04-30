@@ -12,56 +12,53 @@ namespace StudentAdministrationWebApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class DataObjectsController : ControllerBase
+    public class GradesController : ControllerBase
     {
         private readonly ApplicationDbContext _context;
 
-        public DataObjectsController(ApplicationDbContext context)
+        public GradesController(ApplicationDbContext context)
         {
             _context = context;
         }
 
-
         [HttpGet]
-        public IEnumerable<DataObject> GetDataObjects()
+        public IEnumerable<Grade> GetGrades()
         {
-            return _context.DataObjects;
+            return _context.Grades;
         }
 
-
         [HttpGet("{id}")]
-        public async Task<IActionResult> GetDataObject([FromRoute] int id)
+        public async Task<IActionResult> GetGrade([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var dataObject = await _context.DataObjects.FindAsync(id);
+            var grade = await _context.Grades.FindAsync(id);
 
-            if (dataObject == null)
+            if (grade == null)
             {
                 return NotFound();
             }
 
-            return Ok(dataObject);
+            return Ok(grade);
         }
 
-
         [HttpPut("{id}")]
-        public async Task<IActionResult> PutDataObject([FromRoute] int id, [FromBody] DataObject dataObject)
+        public async Task<IActionResult> PutGrade([FromRoute] int id, [FromBody] Grade grade)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != dataObject.Id)
+            if (id != grade.Id)
             {
                 return BadRequest();
             }
 
-            _context.Entry(dataObject).State = EntityState.Modified;
+            _context.Entry(grade).State = EntityState.Modified;
 
             try
             {
@@ -69,7 +66,7 @@ namespace StudentAdministrationWebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DataObjectExists(id))
+                if (!GradeExists(id))
                 {
                     return NotFound();
                 }
@@ -82,44 +79,42 @@ namespace StudentAdministrationWebApi.Controllers
             return NoContent();
         }
 
-        // POST: api/DataObjects
         [HttpPost]
-        public async Task<IActionResult> PostDataObject([FromBody] DataObject dataObject)
+        public async Task<IActionResult> PostGrade([FromBody] Grade grade)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            _context.DataObjects.Add(dataObject);
+            _context.Grades.Add(grade);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetDataObject", new { id = dataObject.Id }, dataObject);
+            return CreatedAtAction("GetGrade", new { id = grade.Id }, grade);
         }
 
-
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteDataObject([FromRoute] int id)
+        public async Task<IActionResult> DeleteGrade([FromRoute] int id)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            var dataObject = await _context.DataObjects.FindAsync(id);
-            if (dataObject == null)
+            var grade = await _context.Grades.FindAsync(id);
+            if (grade == null)
             {
                 return NotFound();
             }
 
-            if (dataObject.Historic)
+            if (grade.Historic)
             {
-                return Ok(dataObject);
+                return Ok(grade);
             }
 
-            dataObject.Historic = true;
+            grade.Historic = true;
 
-            _context.Entry(dataObject).State = EntityState.Modified;
+            _context.Entry(grade).State = EntityState.Modified;
 
             try
             {
@@ -127,7 +122,7 @@ namespace StudentAdministrationWebApi.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!DataObjectExists(id))
+                if (!GradeExists(id))
                 {
                     return NotFound();
                 }
@@ -137,12 +132,12 @@ namespace StudentAdministrationWebApi.Controllers
                 }
             }
 
-            return Ok(dataObject);
+            return Ok(grade);
         }
 
-        private bool DataObjectExists(int id)
+        private bool GradeExists(int id)
         {
-            return _context.DataObjects.Any(e => e.Id == id);
+            return _context.Grades.Any(e => e.Id == id);
         }
     }
 }
