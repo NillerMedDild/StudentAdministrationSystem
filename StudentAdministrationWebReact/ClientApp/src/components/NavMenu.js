@@ -8,7 +8,7 @@ export default props => (
   <Navbar inverse fixedTop fluid collapseOnSelect>
     <Navbar.Header>
       <Navbar.Brand>
-        <Link to={'/'}>StudentAdministrationWebReact</Link>
+        <Link to={'/'}>StudentAdministrationWeb</Link>
       </Navbar.Brand>
       <Navbar.Toggle />
     </Navbar.Header>
@@ -27,6 +27,11 @@ export default props => (
         <LinkContainer to={'/fetchdata'}>
           <NavItem>
             <Glyphicon glyph='th-list' /> Fetch data
+          </NavItem>
+        </LinkContainer>
+        <LinkContainer to={'/students'}>
+          <NavItem>
+            <Glyphicon glyph='th-list' /> Students
           </NavItem>
         </LinkContainer>
       </Nav>

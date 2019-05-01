@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StudentAdministrationWebApi.DAL.Models
+namespace StudentAdministrationWebReact.Models
 {
     /// <summary>
     /// The student class defines a person who is or has been enrolled on a course.

@@ -3,12 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StudentAdministrationWebApi.DAL.Models
+namespace StudentAdministrationWebReact.Models
 {
     /// <summary>
-    /// The student class defines a person who is or has been enrolled on a course.
+    /// The teacher class defines a person who is or has been teaching a course.
     /// </summary>
-    public class Student
+    public class Teacher
     {
         /// <summary>
         /// A unique ID for the person.
@@ -36,17 +36,17 @@ namespace StudentAdministrationWebApi.DAL.Models
         public string Email { get; set; }
 
         /// <summary>
-        /// A flag indicating whether the student is currently active or historic.
+        /// A flag indicating whether the teacher is currently active or historic.
         /// </summary>
         public bool Historic { get; set; }
 
         /// <summary>
-        /// The id of the school where the student is enrolled.
+        /// The id of the school where the teacher works.
         /// </summary>
         public int SchoolId { get; set; }
 
         /// <summary>
-        /// A virtual reference to provide easy access to the school relevant to the student.
+        /// A virtual reference to provide easy access to the school relevant to the teacher.
         /// </summary>
         public virtual School School { get; set; }
 
@@ -56,14 +56,8 @@ namespace StudentAdministrationWebApi.DAL.Models
         public virtual ICollection<Course> Courses { get; set; }
 
         /// <summary>
-        /// A virtual reference to all relevant grades.
-        /// </summary>
-        public virtual ICollection<Grade> Grades { get; set; }
-
-        /// <summary>
         /// A virtual reference to all related data objects.
         /// </summary>
         public virtual ICollection<DataObject> DataObjects { get; set; }
-
     }
 }

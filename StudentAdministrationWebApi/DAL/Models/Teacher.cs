@@ -28,7 +28,7 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// <summary>
         /// The person's phonenumber.
         /// </summary>
-        public int PhoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
         /// <summary>
         /// The person's e-mail address.
@@ -54,5 +54,10 @@ namespace StudentAdministrationWebApi.DAL.Models
         /// A virtual reference to all relevant courses.
         /// </summary>
         public virtual ICollection<Course> Courses { get; set; }
+
+        /// <summary>
+        /// A virtual reference to all related data objects.
+        /// </summary>
+        public virtual ICollection<DataObject> DataObjects { get; set; }
     }
 }

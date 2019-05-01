@@ -28,6 +28,7 @@ namespace StudentAdministrationWebApi.DAL.Data
                 {
                     entity.HasKey(e => e.Id);
                     entity.HasMany<Course>(e => e.Courses).WithOne(e => e.Student).HasForeignKey(e => e.StudentId);
+                    entity.HasMany<DataObject>(e => e.DataObjects);
                 });
 
             builder.Entity<Teacher>(
@@ -35,6 +36,7 @@ namespace StudentAdministrationWebApi.DAL.Data
                 {
                     entity.HasKey(e => e.Id);
                     entity.HasMany<Course>(e => e.Courses).WithOne(e => e.Teacher).HasForeignKey(e => e.TeacherId);
+                    entity.HasMany<DataObject>(e => e.DataObjects);
                 });
 
             builder.Entity<Course>(

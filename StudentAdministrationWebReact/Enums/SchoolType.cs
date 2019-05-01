@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StudentAdministrationWebApi.DAL.Enums
+namespace StudentAdministrationWebReact.Enums
 {
     public enum SchoolType
     {

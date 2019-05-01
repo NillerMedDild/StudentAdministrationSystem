@@ -16,6 +16,4 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app .
 
-COPY StudentAdministrationWebApi/cert/localhost-dev.pfx /app/cert/localhost-dev.pfx
-
 ENTRYPOINT ["dotnet", "StudentAdministrationWebApi.dll"]

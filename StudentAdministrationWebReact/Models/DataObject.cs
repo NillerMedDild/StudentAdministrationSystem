@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace StudentAdministrationWebApi.DAL.Models
+namespace StudentAdministrationWebReact.Models
 {
     /// <summary>
     /// Piece of data related to either a lesson or course. This can be images, documents or plain text.
