@@ -71,6 +71,14 @@ namespace StudentAdministrationWebApi
                 app.UseHsts();
             }
 
+            app.UseCors(builder =>
+                builder.WithOrigins("http://localhost:*", "https://localhost:*", "10.0.75.0", "10.0.75.1")
+                .AllowAnyHeader()
+                .AllowAnyMethod()
+                .AllowCredentials()
+                .AllowAnyOrigin()
+            );
+
             app.UseHttpsRedirection();
             app.UseMvc();
             app.UseSwagger();

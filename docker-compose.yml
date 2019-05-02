@@ -1,13 +1,13 @@
 version: '3.4'
 
 services:
-  studentadministrationtest:
-    image: ${DOCKER_REGISTRY-}studentadministrationtest
-    build:
-        context: .
-        dockerfile: StudentAdministrationTest/Dockerfile    
-    command: dotnet test
-    container_name : studentadministration_test
+  #studentadministrationtest:
+  #  image: ${DOCKER_REGISTRY-}studentadministrationtest
+  #  build:
+  #      context: .
+  #      dockerfile: StudentAdministrationTest/Dockerfile    
+  #  command: dotnet test
+  #  container_name : studentadministration_test
     
   studentadministrationwebapi:
     image: ${DOCKER_REGISTRY-}studentadministrationwebapi
