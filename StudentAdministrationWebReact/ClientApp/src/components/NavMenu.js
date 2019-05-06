@@ -19,9 +19,9 @@ export default props => (
             <Glyphicon glyph='home' /> Home
           </NavItem>
         </LinkContainer>
-        <LinkContainer to={'/fetchdata'}>
+        <LinkContainer to={'/schools'}>
           <NavItem>
-            <Glyphicon glyph='th-list' /> Fetch data
+            <Glyphicon glyph='education' /> Schools
           </NavItem>
         </LinkContainer>
         <LinkContainer to={'/students'}>
