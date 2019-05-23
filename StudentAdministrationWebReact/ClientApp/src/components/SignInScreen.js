@@ -5,7 +5,7 @@ import firebase from 'firebase';
 
 // Configure Firebase.
 const firebaseConfig = {
-  apiKey: "AIzaSyDiyZoBUyP4DDkJJP-Bqc3SXcmiC9lPfhw",
+  apiKey: "woops",
   authDomain: "studentadministrationsys.firebaseapp.com",
   databaseURL: "https://studentadministrationsys.firebaseio.com",
   projectId: "studentadministrationsys",
