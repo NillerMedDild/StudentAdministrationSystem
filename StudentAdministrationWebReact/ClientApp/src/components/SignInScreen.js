@@ -5,7 +5,7 @@ import firebase from 'firebase';
 
 // Configure Firebase.
 const firebaseConfig = {
-  apiKey: "woops",
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
   authDomain: "studentadministrationsys.firebaseapp.com",
   databaseURL: "https://studentadministrationsys.firebaseio.com",
   projectId: "studentadministrationsys",
