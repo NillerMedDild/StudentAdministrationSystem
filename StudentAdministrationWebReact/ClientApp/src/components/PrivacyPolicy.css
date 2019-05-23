@@ -1,0 +1,25 @@
+.privacy-policy a {
+  color: grey;
+}
+
+.privacy-policy {
+  position: absolute;
+  bottom: 0;
+  margin-left: 6px;
+  margin-bottom: 6px;
+  font-size: 15px;
+}
+
+.privacy-policy .glyphicon {
+  color: grey;
+  margin-right: 8px;
+}
+
+/* Highlighting rules for nav menu items */
+.privacy-policy .active a,
+.privacy-policy .active a:hover,
+.privacy-policy .active a:focus {
+    background-image: none;
+    background-color: #4189C7;
+    color: white;
+}

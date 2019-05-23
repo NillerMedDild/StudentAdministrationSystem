@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Currently not functional, it appears that the state.items array isn't being set to anything.
-class Students extends Component {
+class Schools extends Component {
     state = {
       error: null,
       isLoaded: false,
@@ -69,4 +69,4 @@ function renderSchoolsTable(props) {
   );
 }
 
-export default connect()(Students);
+export default connect()(Schools);
